@@ -2,6 +2,7 @@ from personalInfo_model import personalInfoModel
 from personalInfo_controller import personalInfoController
 from commonUtils.qtElements.basic_view import *
 from commonUtils.qtElements.basic_MVCmanager import basicMVCmanager
+from commonUtils.helpers.helper import getAppDir
 
 class infoWidgetManager(basicMVCmanager):
     def setMVC(self):
@@ -18,7 +19,7 @@ if __name__ == '__main__':
     
     man = infoWidgetManager()
     jj = jsonSaveLoadHandler()
-    saveToLoc = r'F:\abdulahad.momin\projects\demo\work\run\tutorial_1\tutorial-1.json'
+    saveToLoc = os.path.join(getAppDir(), '..', '..', '..', '..', 'run', 'tutorial-1.json')
     if os.path.exists(saveToLoc):
         jData = jj.load(saveToLoc)
         man.setData(jData)
